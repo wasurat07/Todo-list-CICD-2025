@@ -1380,17 +1380,21 @@ start htmlcov/index.html  # Windows
 ```
 
 ## แนบรูปผลการทดลองการทดสอบระบบ
-```plaintext
-# แนบรูปผลการทดลองที่นี่
 
-``` 
+<img width="1920" height="1020" alt="Screenshot 2025-10-09 150622" src="https://github.com/user-attachments/assets/dd6d2308-2632-49b1-8ff2-af45c4633f0a" />
+
+
 ## คำถามการทดลอง
 ให้จับคู่ Code ส่วนของการทดสอบ กับ Code การทำงาน มาอย่างน้อย 3 ฟังก์ชัน พร้อมอธิบายการทำงานของแต่ละกรณี
-```plaintext
-# ตอบคำถามที่นี่
+
+| ลำดับ | ฟังก์ชัน                                | จุดที่ทดสอบ             | คำอธิบาย                                                                                       |
+| ----- | --------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------- |
+| 1     | `/api/health` → `health_check()`        | ✅ ทดสอบระบบและฐานข้อมูล | ตรวจสอบว่า database ตอบสนองไหม ถ้า query ผ่าน → 200 (healthy), ถ้า exception → 503 (unhealthy) |
+| 2     | `POST /api/todos` → `create_todo()`     | ✅ ทดสอบการสร้างข้อมูล   | ส่ง JSON มี title แล้วบันทึกลงฐานข้อมูล ถ้า title หาย → 400, ถ้า DB ล้ม → 500                  |
+| 3     | `PUT /api/todos/<id>` → `update_todo()` | ✅ ทดสอบการแก้ไขข้อมูล   | แก้ไขข้อมูลใน DB, ตรวจสอบ commit สำเร็จ/ไม่สำเร็จ, หรือหา id ไม่เจอ → 404                      |
 
 
-```
+
 
 
 ### ขั้นตอนที่ 5.4: Cleanup  (ไม่ต้องทดลอง สามารถข้ามได้)
@@ -1730,9 +1734,12 @@ https://flask-todo-app.onrender.com
 **เพิ่ม RENDER_DEPLOY_HOOK_URL และ RENDER_APP_URL บน GitHub Repository**
 **ทำการ push ไปที่ GitHub Repository** แล้วตรวจสอบผลการทำงาน
 ## บันทึกรูปผลการทำงาน
-```bash
-# บันทึกรูปผลการทำงานที่นี่
-``` 
+<img width="1919" height="869" alt="image" src="https://github.com/user-attachments/assets/d5b041e5-e95f-45b8-a19f-9159fe226dbe" />
+
+
+<img width="1919" height="870" alt="image" src="https://github.com/user-attachments/assets/7d54426a-7858-4942-b2a1-1ba6aed21889" />
+
+
 
 ---
 
@@ -1897,13 +1904,13 @@ curl https://YOUR_RAILWAY_APP_URL/api/health
 
 ก่อน push code และ trigger GitHub Actions ให้ตรวจสอบ:
 
-- [ ] Render Database สร้างเสร็จและสถานะ "Available"
-- [ ] Render Web Service deploy สำเร็จและสถานะ "Live"
-- [ ] Railway Database และ Web Service ทำงานปกติ
-- [ ] สร้าง GitHub Secrets ครบ 5 ตัว
-- [ ] ทดสอบ health endpoints ของทั้ง Render และ Railway ได้
-- [ ] URL ไม่มี `/` ท้าย
-- [ ] DATABASE_URL ใช้ Internal URL (สำหรับ Render)
+- [x] Render Database สร้างเสร็จและสถานะ "Available"
+- [x] Render Web Service deploy สำเร็จและสถานะ "Live"
+- [x] Railway Database และ Web Service ทำงานปกติ
+- [x] สร้าง GitHub Secrets ครบ 5 ตัว
+- [x] ทดสอบ health endpoints ของทั้ง Render และ Railway ได้
+- [x] URL ไม่มี `/` ท้าย
+- [x] DATABASE_URL ใช้ Internal URL (สำหรับ Render)
 
 ---
 
@@ -2007,6 +2014,7 @@ curl -X POST https://your-app.up.railway.app/api/todos \
 # Get todos
 curl https://your-app.up.railway.app/api/todos
 ```
+<img width="1917" height="867" alt="image" src="https://github.com/user-attachments/assets/de4de706-cef3-40a3-8ce6-b1b25dd1c3d5" />
 
 ---
 
@@ -2124,32 +2132,70 @@ docker-compose up -d
 
 ตรวจสอบว่าทำสำเร็จทุกข้อ:
 
-- [ ] สร้าง GitHub repository และ clone ลงเครื่อง
-- [ ] สร้าง Flask application ที่มี CRUD operations ครบถ้วน
-- [ ] เขียน tests ที่ครอบคลุม code coverage > 80%
-- [ ] สร้าง Dockerfile ที่ optimize แล้ว
-- [ ] สร้าง docker-compose.yml ที่แยก services
-- [ ] รัน application ด้วย Docker และทดสอบใน local สำเร็จ
-- [ ] สร้าง GitHub Actions workflow ที่มีทั้ง CI และ CD
-- [ ] Deploy ไปยัง Render สำเร็จ
-- [ ] Deploy ไปยัง Railway สำเร็จ
-- [ ] ทดสอบ API endpoints บน production
-- [ ] Health checks ทำงานถูกต้อง
-- [ ] Auto-deployment ทำงานเมื่อ push code ใหม่
+- [x] สร้าง GitHub repository และ clone ลงเครื่อง
+- [x] สร้าง Flask application ที่มี CRUD operations ครบถ้วน
+- [x] เขียน tests ที่ครอบคลุม code coverage > 80%
+- [x] สร้าง Dockerfile ที่ optimize แล้ว
+- [x] สร้าง docker-compose.yml ที่แยก services
+- [x] รัน application ด้วย Docker และทดสอบใน local สำเร็จ
+- [x] สร้าง GitHub Actions workflow ที่มีทั้ง CI และ CD
+- [x] Deploy ไปยัง Render สำเร็จ
+- [x] Deploy ไปยัง Railway สำเร็จ
+- [x] ทดสอบ API endpoints บน production
+- [x] Health checks ทำงานถูกต้อง
+- [x] Auto-deployment ทำงานเมื่อ push code ใหม่
 
 ### 10.2 คำถามทบทวน
 
 
 1. **Docker Architecture**:
    - เหตุใดจึงต้องแยก database และ application เป็นคนละ containers ?
+      - เพื่อให้แต่ละ service ทำงานอย่างอิสระ ไม่รบกวนกัน (Isolation)
+      - สามารถอัปเดต รีสตาร์ท หรือสเกลขยายเฉพาะส่วนได้
+      - เพิ่มความปลอดภัย (จำกัดสิทธิ์และพอร์ตเฉพาะที่จำเป็น)
+      - ง่ายต่อการดูแล ปรับเปลี่ยน หรือทดสอบแยกกัน
+      - ใช้งานร่วมกับ Docker Compose เพื่อจำลองระบบจริงได้สมบูรณ์ในเครื่องเดียว
+      - Isolation, รีสตาร์ท/สเกลเฉพาะส่วนได้, เพิ่มความปลอดภัย (เปิดพอร์ตเท่าที่จำเป็น), ทดแทน/อัปเกรดได้ง่าย
+   
    - Multi-stage build มีประโยชน์อย่างไร?
+      - ลดขนาด image ให้เล็กลง เนื่องจากไม่ต้องเก็บเครื่องมือ build
+      - ทำให้ build เร็วขึ้น ด้วยการ cache layer จาก stage ก่อนหน้า
+      - ปลอดภัยขึ้น เพราะ runtime image ไม่มี compiler หรือไฟล์ที่ไม่จำเป็น
+      - แยกขั้นตอนการ build และ run อย่างชัดเจน ง่ายต่อการดูแลใน production
+      - Multi-stage build → ลดขนาด image (ตัด compiler/headers ออก), build เร็วขึ้น, runtime สะอาดและปลอดภัยกว่า
 
 2. **Testing Strategy**:
    - การวัด code coverage มีความสำคัญอย่างไร?
+      - ใช้วัดเปอร์เซ็นต์ของโค้ดที่ถูกทดสอบจริง
+      - ช่วยระบุส่วนของโปรแกรมที่ยังไม่มี test → ป้องกันบั๊กในอนาคต
+      - ใช้เป็นเกณฑ์ควบคุมคุณภาพใน CI/CD เช่น `--cov-fail-under=90`
+      - สนับสนุนการ refactor อย่างมั่นใจ เพราะรู้ว่า test ครอบคลุมครบแล้ว
+      - เป็นตัวบ่งชี้ความพร้อมของระบบก่อน deploy
+      - มองเห็นโค้ดที่ยังไม่ถูกทดสอบ → อุดรูรั่วก่อนขึ้น prod
+      - ตั้งเกณฑ์ใน CI (--cov-fail-under=90) เพื่อรักษาคุณภาพระยะยาว
+      - กล้าทำ refactor เพราะมี safety net
 
 3. **Deployment**:
    - Health check endpoint มีความสำคัญอย่างไร?
+      - ใช้ตรวจสอบความพร้อมของระบบก่อนส่งทราฟฟิกจริง
+     - ช่วยให้ platform (Render/Railway) รู้ว่า container ทำงานปกติ
+     - ใช้ใน CI/CD pipeline เพื่อยืนยันว่า deploy สำเร็จจริง (ไม่ใช่แค่ build ผ่าน)
+     - ถ้า service ล้ม ระบบสามารถ restart อัตโนมัติได้
+     - ใช้ readiness/liveness ตรวจความพร้อมจริง (หลัง migrate/เชื่อม DB)
+     - Pipeline ใช้ยืนยัน “deploy ไม่ใช่แค่สำเร็จ แต่พร้อมใช้งาน”
+   
    - Render และ Railway มีความแตกต่างกันอย่่างไร?
+      | หัวข้อ | **Render** | **Railway** |
+      |--------|-------------|-------------|
+      | **รูปแบบการ Deploy** | ใช้ GitHub Integration หรือ Deploy Hook URL | ใช้ Railway CLI (`railway up`) |
+      | **การจัดการ Database** | มี PostgreSQL ภายใน (Internal DB URL) | มี PostgreSQL ในโปรเจกต์เดียวกัน (อ้าง `${{Postgres.DATABASE_URL}}`) |
+      | **การตั้งค่า Environment Variables** | ตั้งผ่านหน้าเว็บง่ายๆ | รองรับ Variable Linking ระหว่าง services |
+      | **Health Check & Logs** | มีระบบ Health Check และ Deploy Logs โดยอัตโนมัติ | มี Realtime Logs และ Manual Deploy |
+      | **Free Tier Behavior** | Service จะ sleep ถ้าไม่มีการใช้งาน 15 นาที | ต้องเปิด Public Networking เพื่อเข้าถึงผ่าน URL |
+      | **จุดเด่นหลัก** | สะดวกสำหรับ auto-deploy ผ่าน GitHub Actions | ยืดหยุ่นสำหรับสั่ง deploy ผ่าน CLI หรือ pipeline |
+
+      - Render: ง่ายกับ GitHub integration + Deploy Hook, มี Internal DB URL, เหมาะ auto-deploy จาก main
+      - Railway: เด่นที่ CLI, ผูก Variables แบบ reference ข้าม service, เหมาะงานที่อยาก control ด้วยคำสั่ง/สคริปต์
 
 
 ---
